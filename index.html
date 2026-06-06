@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📐 Grade 12 Advanced Math - Composite Solids of Revolution Exam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .correct { background-color: #dcfce7 !important; border-color: #16a34a !important; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #dc2626 !important; }
+        .formula { font-family: 'Times New Roman', serif; font-style: italic; direction: ltr; display: inline-block; }
+        .timer-warning { color: #dc2626 !important; animation: pulse 1s infinite; }
+        @keyframes pulse { 50% { opacity: 0.7; } }
+        @media print { .no-print { display: none !important; } }
+        .success-badge { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        .grade-excellent { background: #dcfce7; color: #166534; }
+        .grade-good { background: #fef3c7; color: #92400e; }
+        .grade-pass { background: #dbeafe; color: #1e40af; }
+        .grade-fail { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
+
+    <!-- Timer -->
+    <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-indigo-100">
+            <span class="text-gray-600 ml-2">⏱️ Time Remaining:</span>
+            <span id="timer" class="text-2xl font-bold text-indigo-600 font-mono">60:00</span>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
+        <button onclick="toggleAnswers()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer">
+            👁️ Show / Hide Model Answers
+        </button>
+        <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer">
+            🖨️ Print / Save as PDF
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-l-4 border-indigo-600">
+        <div class="text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">📐 Grade 12 Advanced Mathematics</h1>
+            <h2 class="text-lg text-indigo-600 font-semibold">Unit 6.3: The Anatomy of Composite Solids of Revolution</h2>
+        </div>
+        <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+            <span>📅 Date: <input type="text" class="border-b border-gray-400 bg-transparent w-28 text-center"></span>
+            <span>👤 Name: <input type="text" id="studentName" class="border-b border-gray-400 bg-transparent w-32 text-center" placeholder="Enter Name"></span>
+            <span>⏱️ Duration: 60 min</span>
+            <span>📊 Total: 100 Marks</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+
+        <!-- Section 1: Fundamentals of Composite Solids -->
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">🔹 Part 1: Fundamentals of Composite Solids</h2>
+            <ol id="section1-list" class="space-y-4 text-sm">
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-1">
+                    <strong>1.</strong> What is the fundamental challenge introduced in Chapter 6.3 of applied spatial mathematics?<br>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q1" value="a" class="mr-2"> a) Calculating the volume of simple uniform cylinders</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q1" value="b" class="mr-2"> b) Calculating the volumes of composite objects - sophisticated stacks of interacting geometric rules</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q1" value="c" class="mr-2"> c) Finding the surface area of a sphere</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q1" value="d" class="mr-2"> d) Measuring 2D areas only</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-2">
+                    <strong>2.</strong> According to the text, complex solid forms must be mathematically disassembled into what before volumetric properties can be calculated?<br>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q2" value="a" class="mr-2"> a) Fundamental primitives</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q2" value="b" class="mr-2"> b) Random shapes</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q2" value="c" class="mr-2"> c) 3D models only</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q2" value="d" class="mr-2"> d) Physical measurements</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: a)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-3">
+                    <strong>3.</strong> What is the geometric primitive of "The Base" in a composite solid?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Hemispherical dome</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Uniform cylinder</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q3" value="c" class="mr-2"> c) Parabolic dome</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q3" value="d" class="mr-2"> d) Cone</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-4">
+                    <strong>4.</strong> What is the geometric primitive of "The Crown" in a composite solid?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q4" value="a" class="mr-2"> a) Uniform cylinder</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q4" value="b" class="mr-2"> b) Hemispherical / Parabolic dome</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q4" value="c" class="mr-2"> c) Rectangular prism</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q4" value="d" class="mr-2"> d) Pyramid</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section 2: The Composite Solid Matrix -->
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">🔹 Part 2: The Composite Solid Matrix</h2>
+            <ol id="section2-list" class="space-y-4 text-sm">
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-5">
+                    <strong>5.</strong> What is the radius metric for "The Base" (Uniform Cylinder)?<br>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q5" value="a" class="mr-2"> a) Variable r, decreasing to zero at the vertex</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q5" value="b" class="mr-2"> b) Constant r along the vertical axis</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q5" value="c" class="mr-2"> c) Zero radius</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q5" value="d" class="mr-2"> d) Infinite radius</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-6">
+                    <strong>6.</strong> What is the radius metric for "The Crown" (Hemispherical / Parabolic Dome)?<br>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q6" value="a" class="mr-2"> a) Constant r along the vertical axis</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q6" value="b" class="mr-2"> b) Variable r, decreasing to zero at the vertex</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q6" value="c" class="mr-2"> c) Fixed radius of 1</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q6" value="d" class="mr-2"> d) Linear radius</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-7">
+                    <strong>7.</strong> What integration approach is used for "The Base" (Uniform Cylinder)?<br>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q7" value="a" class="mr-2"> a) Requires integration of a curved boundary function</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q7" value="b" class="mr-2"> b) Standard cross-sectional area (Disk/Washer method)</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q7" value="c" class="mr-2"> c) Shell method only</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q7" value="d" class="mr-2"> d) No integration needed</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-8">
+                    <strong>8.</strong> What integration approach is used for "The Crown" (Hemispherical / Parabolic Dome)?<br>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q8" value="a" class="mr-2"> a) Standard cross-sectional area only</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q8" value="b" class="mr-2"> b) Requires integration of a curved boundary function</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q8" value="c" class="mr-2"> c) Simple multiplication</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q8" value="d" class="mr-2"> d) No calculus required</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section 3: Spatial Boundaries & Constraints -->
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">🔹 Part 3: Spatial Boundaries & Constraints</h2>
+            <ol id="section3-list" class="space-y-4 text-sm">
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-9">
+                    <strong>9.</strong> What does Constraint Alpha (x = 3) define in the composite solid?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q9" value="a" class="mr-2"> a) The vertical intersection plane</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q9" value="b" class="mr-2"> b) The maximum outer radius</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q9" value="c" class="mr-2"> c) The height of the solid</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q9" value="d" class="mr-2"> d) The inner radius</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-10">
+                    <strong>10.</strong> What does Constraint Beta (y = 2) define in the composite solid?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q10" value="a" class="mr-2"> a) The maximum outer radius</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q10" value="b" class="mr-2"> b) The vertical intersection plane or height</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q10" value="c" class="mr-2"> c) The axis of rotation</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q10" value="d" class="mr-2"> d) The inner radius</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-11">
+                    <strong>11.</strong> What function do linear boundaries (x=3, y=2) serve before a solid can exist in three dimensions?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q11" value="a" class="mr-2"> a) They are decorative elements</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q11" value="b" class="mr-2"> b) They function as the scaffolding upon which the curved geometry is built</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q11" value="c" class="mr-2"> c) They define the color of the solid</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q11" value="d" class="mr-2"> d) They are optional constraints</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-12">
+                    <strong>12.</strong> What dictates the boundary limits for piecewise integration in a composite solid?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q12" value="a" class="mr-2"> a) The color of the solid</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q12" value="b" class="mr-2"> b) The point of intersection between Base and Crown</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q12" value="c" class="mr-2"> c) The outer radius only</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q12" value="d" class="mr-2"> d) Random selection</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section 4: The Mechanics of Revolution -->
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">🔹 Part 4: The Mechanics of Revolution</h2>
+            <ol id="section4-list" class="space-y-4 text-sm">
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-13">
+                    <strong>13.</strong> What is Step 1 in the Mechanics of Revolution?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q13" value="a" class="mr-2"> a) The Rotational Axis</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q13" value="b" class="mr-2"> b) The 2D Profile</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q13" value="c" class="mr-2"> c) The Generated Solid</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q13" value="d" class="mr-2"> d) The Volume Calculation</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-14">
+                    <strong>14.</strong> What is Step 2 in the Mechanics of Revolution?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q14" value="a" class="mr-2"> a) The 2D Profile</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q14" value="b" class="mr-2"> b) The Generated Solid</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q14" value="c" class="mr-2"> c) The Rotational Axis</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q14" value="d" class="mr-2"> d) The Boundary Constraints</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: c)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-15">
+                    <strong>15.</strong> What is Step 3 in the Mechanics of Revolution?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q15" value="a" class="mr-2"> a) The 2D Profile</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q15" value="b" class="mr-2"> b) The Rotational Axis</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q15" value="c" class="mr-2"> c) The Generated Solid</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q15" value="d" class="mr-2"> d) The Integration Limits</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: c)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-16">
+                    <strong>16.</strong> A composite solid is simply a sequence of functions rapidly rotated around what to claim three-dimensional space?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q16" value="a" class="mr-2"> a) A random point</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q16" value="b" class="mr-2"> b) A central axis</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q16" value="c" class="mr-2"> c) The outer boundary</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q16" value="d" class="mr-2"> d) The inner core</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section 5: The Escalation Framework -->
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">🔹 Part 5: The Escalation Framework</h2>
+            <ol id="section5-list" class="space-y-4 text-sm">
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-17">
+                    <strong>17.</strong> What is the focus of Tier 1 (Foundational Primitives)?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q17" value="a" class="mr-2"> a) Stacking multiple geometrical functions</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q17" value="b" class="mr-2"> b) Solids with internal voids</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q17" value="c" class="mr-2"> c) Calculating basic uniform cylinders and single-curve rotations</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q17" value="d" class="mr-2"> d) Complex composite assembly</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: c)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-18">
+                    <strong>18.</strong> What is the focus of Tier 3 (Hollow & Complex Sweeps)?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q18" value="a" class="mr-2"> a) Basic uniform cylinders</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q18" value="b" class="mr-2"> b) Solids with internal voids; the Washer Method visualised</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q18" value="c" class="mr-2"> c) Stacking multiple geometrical functions</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q18" value="d" class="mr-2"> d) Single-curve rotations only</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-19">
+                    <strong>19.</strong> What is the focus of Tier 4 (Composite Assembly)?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q19" value="a" class="mr-2"> a) Basic cylinders</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q19" value="b" class="mr-2"> b) Hollow solids only</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q19" value="c" class="mr-2"> c) Stacking multiple geometrical functions to calculate a single, unified volume</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q19" value="d" class="mr-2"> d) Simple disk method only</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: c)</div>
+                </li>
+                <li class="border-l-4 border-indigo-500 pl-4 py-2" id="q-20">
+                    <strong>20.</strong> According to the Grand Synthesis, what do complex physical forms become when deconstructed into component primitives?</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q20" value="a" class="mr-2"> a) Intractable spatial problems</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q20" value="b" class="mr-2"> b) A structured, linear sequence of calculus</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q20" value="c" class="mr-2"> c) Mathematical anomalies</label>
+                    <label class="ml-4 cursor-pointer block mt-1"><input type="radio" name="q20" value="d" class="mr-2"> d) Random geometric shapes</label>
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">✅ Answer: b)</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="text-center no-print pb-8">
+            <button onclick="gradeExam()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg px-10 py-4 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer">
+                📝 Submit & Auto-Grade Exam
+            </button>
+        </div>
+    </main>
+
+    <!-- Results Panel -->
+    <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">📊 Exam Results</h2>
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p>Student Name</p><p id="res-name" class="font-bold text-xl text-indigo-700">-</p></div>
+            <div class="bg-purple-50 p-4 rounded-xl text-center"><p>Date</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
+            <div class="bg-emerald-50 p-4 rounded-xl text-center"><p>Total Score</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
+        </div>
+
+        <!-- Success Rate Badge -->
+        <div class="text-center mb-6">
+            <span id="success-badge" class="success-badge grade-excellent">Excellent - 100%</span>
+            <p id="success-percent" class="text-4xl font-bold text-emerald-600 mt-2">100%</p>
+            <p class="text-sm text-gray-500">Success Rate</p>
+        </div>
+
+        <!-- Email Send Button -->
+        <div class="text-center mb-6">
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer">
+                📧 Send Results to Teacher
+            </button>
+            <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
+        </div>
+
+        <div class="flex gap-3 justify-center">
+            <button onclick="window.print()" class="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold">🖨️ Print Results</button>
+        </div>
+    </div>
+
+    <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
+        © Grade 12 Advanced Mathematics | Unit 6.3: Composite Solids of Revolution | Mr. Mohammed Hesham
+    </footer>
+
+    <script>
+        // ============================================================
+        // ⚠️ STEP 1: EmailJS Configuration
+        // ============================================================
+        const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
+        const SERVICE_ID = "service_w15m64i";
+        const TEMPLATE_ID = "template_5b0u2tq";
+        const TARGET_EMAIL = "mohammedhesham872@gmail.com";
+        // ============================================================
+
+        (function(){ emailjs.init(PUBLIC_KEY); })();
+
+        // Timer functionality
+        let timeRemaining = 3600; // 60 minutes in seconds
+        let timerInterval;
+
+        function startTimer() {
+            document.getElementById('timer-container').style.display = 'block';
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                const timerEl = document.getElementById('timer');
+                timerEl.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+                
+                if (timeRemaining <= 300) {
+                    timerEl.classList.add('timer-warning');
+                }
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time's up! Your exam will be submitted automatically.");
+                    gradeExam();
+                }
+            }, 1000);
+        }
+
+        function toggleAnswers() {
+            document.querySelectorAll('.answer-box').forEach(el => el.classList.toggle('hidden'));
+        }
+
+        function gradeExam() {
+            let correctCount = 0;
+            const correctAnswers = [
+                'b','a','b','b',  // Q1-4
+                'b','b','b','b',  // Q5-8
+                'b','b','b','b',  // Q9-12
+                'b','c','c','b',  // Q13-16
+                'c','b','c','b'   // Q17-20
+            ];
+
+            for(let i=1; i<=20; i++){
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const li = document.getElementById(`q-${i}`);
+                const isCorrect = selected && selected.value === correctAnswers[i-1];
+                
+                if (isCorrect) {
+                    correctCount++;
+                    li.classList.add('correct');
+                    li.classList.remove('incorrect');
+                } else {
+                    li.classList.add('incorrect');
+                    li.classList.remove('correct');
+                }
+            }
+
+            const score = (correctCount / 20) * 100;
+            const successRate = Math.round(score);
+            
+            document.getElementById('res-total').textContent = `${Math.round(score)} / 100`;
+            document.getElementById('res-name').textContent = document.getElementById('studentName').value || 'Student';
+            document.getElementById('res-date').textContent = new Date().toLocaleDateString();
+            
+            // Update success badge
+            const badge = document.getElementById('success-badge');
+            const percent = document.getElementById('success-percent');
+            percent.textContent = `${successRate}%`;
+            
+            if(successRate >= 90) {
+                badge.textContent = 'Excellent';
+                badge.className = 'success-badge grade-excellent';
+            } else if(successRate >= 75) {
+                badge.textContent = 'Good';
+                badge.className = 'success-badge grade-good';
+            } else if(successRate >= 50) {
+                badge.textContent = 'Pass';
+                badge.className = 'success-badge grade-pass';
+            } else {
+                badge.textContent = 'Needs Improvement';
+                badge.className = 'success-badge grade-fail';
+            }
+            
+            document.getElementById('results-panel').classList.remove('hidden');
+            document.getElementById('results-panel').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show email button after grading
+            document.getElementById('sendEmailBtn').classList.remove('hidden');
+        }
+
+        function sendResultsToEmail() {
+            const btn = document.getElementById('sendEmailBtn');
+            const status = document.getElementById('emailStatus');
+            btn.disabled = true;
+            btn.textContent = '⏳ Sending...';
+
+            const name = document.getElementById('studentName').value || 'N/A';
+            const date = document.querySelector('input[type="text"]').value || new Date().toLocaleDateString();
+            const score = document.getElementById('res-total').textContent;
+            const successRate = document.getElementById('success-percent').textContent;
+
+            let answersHTML = `<table style="border:1px solid #e5e7eb; border-collapse:collapse; width:100%; font-family:'Inter', sans-serif; font-size:14px;">
+                <tr style="background:#4F46E5; color:white;"><th style="border:1px solid #e5e7eb; padding:8px;">Q#</th><th style="border:1px solid #e5e7eb; padding:8px;">Selected</th><th style="border:1px solid #e5e7eb; padding:8px;">Status</th></tr>`;
+            
+            const correctAnswers = ['b','a','b','b','b','b','b','b','b','b','b','b','b','c','c','b','c','b','c','b'];
+            
+            for(let i=1; i<=20; i++) {
+                const sel = document.querySelector(`input[name="q${i}"]:checked`);
+                const isCorrect = sel && sel.value === correctAnswers[i-1];
+                answersHTML += `<tr><td style="border:1px solid #e5e7eb; padding:6px;">${i}</td><td style="border:1px solid #e5e7eb; padding:6px;">${sel ? sel.value.toUpperCase() : '-'}</td><td style="border:1px solid #e5e7eb; padding:6px; color:${isCorrect ? 'green' : 'red'}">${isCorrect ? '✅ Correct' : '❌ Incorrect'}</td></tr>`;
+            }
+            answersHTML += '</table>';
+
+            const templateParams = {
+                to_email: TARGET_EMAIL,
+                student_name: name,
+                exam_date: date,
+                total_score: score,
+                success_rate: successRate,
+                answers_table: answersHTML
+            };
+
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+                .then(() => {
+                    status.textContent = '✅ Sent successfully! Check your Gmail.';
+                    status.style.color = '#059669';
+                    btn.textContent = '✓ Sent';
+                })
+                .catch(err => {
+                    status.textContent = '❌ Failed. Check console or setup.';
+                    status.style.color = '#dc2626';
+                    btn.disabled = false;
+                    btn.textContent = '📧 Retry Send';
+                    console.error('EmailJS Error:', err);
+                });
+        }
+
+        // Initialize timer on page load
+        window.addEventListener('DOMContentLoaded', startTimer);
+    </script>
+</body>
+</html>
